@@ -6,7 +6,9 @@
 
 [tool.poetry.dependencies]
   python = "^3.8"
-deta = "^1.1.0"
+  deta = "^1.1.0"
+  sendgrid = "^6.9.7"
+  requests = "^2.27.1"
 
 [tool.poetry.dev-dependencies]
 
