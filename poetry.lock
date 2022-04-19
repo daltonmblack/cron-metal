@@ -1,0 +1,18 @@
+[[package]]
+name = "deta"
+version = "1.1.0"
+description = "Python SDK for Deta Base & Deta Drive."
+category = "main"
+optional = false
+python-versions = "*"
+
+[metadata]
+lock-version = "1.1"
+  python-versions = "^3.8"
+content-hash = "fed80085770e61fb289f7c7e05366762f2f5d0cca5f004b404031d792a733309"
+
+[metadata.files]
+deta = [
+    {file = "deta-1.1.0-py3-none-any.whl", hash = "sha256:56c67ba284b955788cb82f5229529131d8e58af7fb91fc2208a3d0d55cda38f2"},
+    {file = "deta-1.1.0.tar.gz", hash = "sha256:c0d59a166139be8100179786ef7f0f5728be9e47deb669266e3045f0cb996828"},
+]

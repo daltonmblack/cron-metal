@@ -1,0 +1,15 @@
+[tool.poetry]
+  name = "cronmetal"
+  version = "0.1.0"
+  description = "Cron job that runs on deta.sh which queries metal-joke-api and sends the response as an email"
+  authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+  python = "^3.8"
+deta = "^1.1.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+  requires = ["poetry-core>=1.0.0"]
+  build-backend = "poetry.core.masonry.api"
