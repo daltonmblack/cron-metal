@@ -9,3 +9,9 @@ From the project's root directory, run:
 ```bash
 cp hooks/* .git/hooks/
 ```
+
+## Testing
+
+```bash
+poetry run pytest
+```
