@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if ! python scripts/env_validator.py; then
+  echo "Env validation failed!"
+
+  exit 1
+fi
