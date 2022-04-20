@@ -4,6 +4,7 @@ from os.path import exists
 
 from cronmetal.email_utility import send_joke_email
 from cronmetal.env_data import EnvData
+from scripts.env_validator import validate_keys
 
 
 def read_and_set_env_vars():
@@ -26,6 +27,7 @@ def read_and_set_env_vars():
       os.environ[k] = v
 
 def main():
+  validate_keys()
   read_and_set_env_vars()
 
   env_data = EnvData()
