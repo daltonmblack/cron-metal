@@ -1,10 +1,12 @@
-# Test
+# Cron Metal
 
-Cron job that runs on deta.sh which queries metal-joke-api and sends the response as an email
+Cron job that runs on deta.sh which queries metal-joke-api and sends the response as an email.
+
 
 ## Setup
 
 There are various pieces of this project that can be set up. You should pick which steps are required for your needs/preferences.
+
 
 ### Prerequisites
 
@@ -15,6 +17,7 @@ There are various pieces of this project that can be set up. You should pick whi
 * [ ] SendGrid
   * [ ] SendGrid account with a [verified single sender](https://docs.sendgrid.com/ui/sending-email/sender-verification)
   * [ ] SendGrid email template ([Design a dynamic transactional template](https://docs.sendgrid.com/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates#design-a-dynamic-transactional-template))
+
 
 ### First Time Deta Setup
 
@@ -39,6 +42,7 @@ deta deploy cronmetal
 
 Verify the application deployed successfully by navigating to [web.deta.sh](https://web.deta.sh/), clicking on `Micros` in the left pane, and checking that an application exists with the name `cronmetal`.
 
+
 ### (Optional) Copy git hooks to local .git/
 
 This project provides templates for git hooks that help to preemptively ensure the quality of commits to the repository, such as sanity checks on the env variable configuration.
@@ -47,6 +51,7 @@ To leverage the provided hooks, run the following command from the project's roo
 ```bash
 cp hooks/* .git/hooks/
 ```
+
 
 ### Configure the Application
 
@@ -58,15 +63,45 @@ cp .env_TEMPLATE .env
 
 Fill in the `PLACEHOLDER` values in the new `.env` file.
 
+
 ## Running the Application
+
+Before running the application (either locally or on Deta), make sure to complete the steps in `Configure the Application` above.
+
+Use either of the two run methods below to trigger SendGrid sending an email to the value of `TO_EMAILS` in your `.env`.
+
 
 ### Run Locally
 
-TODO
+Trigger SendGrid directly from your local environment using:
 
-### Deploy to Deta
+```
+poetry run python run_locally.py
+```
 
-TODO
+
+### Deploy to Deta and Enable the Cron Job
+
+Deploy the most up-to-date version of your application:
+
+```
+deta deploy cronmetal
+```
+
+Set up (or update) the cron job timing that you would like Deta to run your application with:
+
+```
+deta cron set cronmetal "<expression>"
+```
+
+For a list of valid values for `<expression>` (e.g., `5 hours` to run the job every 5 hours) use:
+
+```
+deta cron set --help
+```
+
+At this point if the setup was done correctly and your cron job has run for the first time, you should see an email show up in your targeted email address!
+
 
 ## Testing
 
